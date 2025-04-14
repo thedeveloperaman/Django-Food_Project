@@ -1,0 +1,90 @@
+{% extends "myfood/base.html" %}
+
+{% block content %}
+<h1 style="
+    text-align: center; 
+    font-family: 'Poppins', sans-serif; 
+    color: #2c3e50; 
+    margin-bottom: 30px; 
+    text-transform: uppercase; 
+    letter-spacing: 3px;
+">
+    Add Item Here!
+</h1>
+<form method="POST" action="{% url 'food:additem' %}" style="
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    font-family: 'Poppins', sans-serif;
+">
+    {% csrf_token %}
+    <div style="margin-bottom: 20px;">
+        <label for="id_item_name" style="
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-size: 16px;
+        ">
+            Item Name
+        </label>
+        {{ form.item_name }}
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="id_desc_name" style="
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-size: 16px;
+        ">
+            Description
+        </label>
+        {{ form.desc_name }}
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="id_price" style="
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-size: 16px;
+        ">
+            Price
+        </label>
+        {{ form.price }}
+    </div>
+    <div style="margin-bottom: 20px;">
+        <label for="id_image" style="
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-size: 16px;
+        ">
+            Image URL
+        </label>
+        {{ form.image }}
+    </div>
+    <button style="
+        display: block;
+        width: 100%;
+        background: linear-gradient(90deg, #ff7e5f, #feb47b);
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s ease, transform 0.2s ease;
+    " onmouseover="this.style.background='linear-gradient(90deg, #feb47b, #ff7e5f)'; this.style.transform='scale(1.05)';"
+        onmouseout="this.style.background='linear-gradient(90deg, #ff7e5f, #feb47b)'; this.style.transform='scale(1)';">
+        Submit
+    </button>
+</form>
+{% endblock %}
